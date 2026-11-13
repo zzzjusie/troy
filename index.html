@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -195,40 +196,61 @@
     </div>
 
 
-    <script src="script.js"></script>
-<div class="troy-music-player">
-  <div class="music-orbit">♫</div>
-  <div class="music-info">
-    <span class="music-small">A LITTLE PIECE OF US ✦</span>
-    <h3 id="music-title">Headlock</h3>
-    <p id="music-subtitle">أغنيتك المفضلة 💜</p>
-  </div>
+    <!-- مشغل الأغاني -->
 
-  <audio id="troy-audio" preload="metadata">
-    <source src="Imogen Heap - Headlock (Lyrics).mp3" type="audio/mpeg">
-  </audio>
+    <div class="troy-music-player">
 
-  <div class="music-controls">
-    <button id="music-play" aria-label="تشغيل أو إيقاف">▶</button>
-    <div class="music-list">
-      <button data-song="Imogen Heap - Headlock (Lyrics).mp3"
-        data-title="Headlock"
-        data-subtitle="أغنيتك المفضلة 💜">01 · Headlock</button>
+        <div class="music-orbit">♫</div>
 
-      <button data-song="
-Mac DeMarco No Other Heart (Official Audio).mp3"
-        data-title="No Other Heart"
-        data-subtitle="الأغنية دي بتفكرني بيك 💗">02 · No Other Heart</button>
+        <div class="music-info">
 
-      <button data-song="
-HOT FREAKS - Puppy Princess (Official Video).mp3"
-        data-title="Puppy Princess"
-        data-subtitle="الأغنية دي بتفكرني بينا 🌙">03 · Puppy Princess</button>
+            <span class="music-small">A LITTLE PIECE OF US ✦</span>
+
+            <h3 id="music-title">Headlock</h3>
+
+            <p id="music-subtitle">أغنيتك المفضلة 💜</p>
+
+        </div>
+
+        <audio id="troy-audio" preload="metadata">
+            <source src="Imogen Heap - Headlock (Lyrics).mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="music-controls">
+
+            <button id="music-play" aria-label="تشغيل أو إيقاف">▶</button>
+
+            <div class="music-list">
+
+                <button data-song="Imogen Heap - Headlock (Lyrics).mp3"
+                    data-title="Headlock"
+                    data-subtitle="أغنيتك المفضلة 💜">
+                    01 · Headlock
+                </button>
+
+                <button data-song="Mac DeMarco No Other Heart (Official Audio).mp3"
+                    data-title="No Other Heart"
+                    data-subtitle="الأغنية دي بتفكرني بيك 💗">
+                    02 · No Other Heart
+                </button>
+
+                <button data-song="HOT FREAKS - Puppy Princess (Official Video).mp3"
+                    data-title="Puppy Princess"
+                    data-subtitle="الأغنية دي بتفكرني بينا 🌙">
+                    03 · Puppy Princess
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="music-note">made with love, for you ♡</div>
+
     </div>
-  </div>
-  <div class="music-note">made with love, for you ♡</div>
-</div>
+
+    <!-- تحميل JavaScript في آخر الصفحة -->
+
+    <script src="script.js"></script>
 
 </body>
-
 </html>
