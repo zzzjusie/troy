@@ -1,3 +1,4 @@
+
 // عناصر الصفحة
 
 const enterBtn = document.getElementById("enterBtn");
@@ -121,62 +122,146 @@ for (let i = 0; i < 90; i++) {
 console.log("تم فتح عالم تروي");
 
 
-/* ظهور شهاب من وقت للتاني */
+// ظهور شهاب من وقت للتاني
 
 function createShootingStar() {
-  const star = document.createElement("div");
 
-  star.className = "shooting-star";
+    const star = document.createElement("div");
 
-  document.body.appendChild(star);
+    star.className = "shooting-star";
 
-  setTimeout(() => {
-    star.remove();
-  }, 1600);
+    document.body.appendChild(star);
+
+    setTimeout(() => {
+
+        star.remove();
+
+    }, 1600);
+
 }
 
 setInterval(() => {
-  createShootingStar();
+
+    createShootingStar();
+
 }, 9000);
+
+
+// =====================================
+// مشغل الأغاني
+// =====================================
+
 const troyAudio = document.getElementById("troy-audio");
+
 const musicPlay = document.getElementById("music-play");
+
 const musicTitle = document.getElementById("music-title");
+
 const musicSubtitle = document.getElementById("music-subtitle");
+
 const songButtons = document.querySelectorAll(".music-list button");
 
+
+// زر التشغيل والإيقاف
+
 musicPlay.addEventListener("click", () => {
-  if (troyAudio.paused) {
-    troyAudio.play();
-  } else {
-    troyAudio.pause();
-  }
+
+    if (troyAudio.paused) {
+
+        troyAudio.play().catch((error) => {
+
+            console.error("تعذر تشغيل الأغنية:", error);
+
+        });
+
+    } else {
+
+        troyAudio.pause();
+
+    }
+
 });
+
+
+// تغيير شكل الزر عند التشغيل
 
 troyAudio.addEventListener("play", () => {
-  musicPlay.textContent = "Ⅱ";
+
+    musicPlay.textContent = "Ⅱ";
+
 });
+
+
+// تغيير شكل الزر عند الإيقاف
 
 troyAudio.addEventListener("pause", () => {
-  musicPlay.textContent = "▶";
+
+    musicPlay.textContent = "▶";
+
 });
+
+
+// التنقل بين الأغاني
 
 songButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    troyAudio.src = button.dataset.song;
-    musicTitle.textContent = button.dataset.title;
-    musicSubtitle.textContent = button.dataset.subtitle;
 
-    songButtons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
+    button.addEventListener("click", () => {
 
-    troyAudio.play().catch(() => {
-      musicPlay.textContent = "▶";
+        const song = button.dataset.song.trim();
+
+        // إيقاف الأغنية الحالية
+
+        troyAudio.pause();
+
+        // تحميل الأغنية الجديدة
+
+        troyAudio.src = song;
+
+        troyAudio.load();
+
+        // تغيير اسم الأغنية والوصف
+
+        musicTitle.textContent = button.dataset.title;
+
+        musicSubtitle.textContent = button.dataset.subtitle;
+
+        // تحديد الأغنية المختارة
+
+        songButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+        // تشغيل الأغنية الجديدة
+
+        troyAudio.play().catch((error) => {
+
+            musicPlay.textContent = "▶";
+
+            console.error("مشكلة في تشغيل الأغنية:", error);
+
+        });
+
     });
-  });
+
 });
 
-// محاولة تشغيل أول أغنية عند فتح الموقع.
-// لو المتصفح منع التشغيل التلقائي، اضغطي زر التشغيل.
-troyAudio.play().catch(() => {
-  musicPlay.textContent = "▶";
+
+// إظهار أي مشكلة في تحميل ملفات الأغاني
+
+troyAudio.addEventListener("error", () => {
+
+    console.error(
+        "فشل تحميل الأغنية. تأكدي من اسم ملف MP3 ومكانه على GitHub."
+    );
+
 });
+
+
+// عدم التشغيل التلقائي
+// الأغنية هتشتغل لما المستخدم يضغط على زر التشغيل
+
+musicPlay.textContent = "▶";
