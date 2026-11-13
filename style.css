@@ -1,0 +1,986 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #080511;
+    --purple: #a879e9;
+    --light-purple: #d8c2ff;
+    --white: #f5edff;
+    --muted: #a99abf;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--white);
+    font-family: 'Cairo', sans-serif;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* النجوم */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, white 100%, transparent),
+        radial-gradient(2px 2px at 30% 70%, #c9a7ff 100%, transparent),
+        radial-gradient(1px 1px at 80% 30%, white 100%, transparent),
+        radial-gradient(2px 2px at 60% 80%, #b18aff 100%, transparent),
+        radial-gradient(1px 1px at 90% 60%, white 100%, transparent);
+
+    background-size: 250px 250px;
+
+    animation: starMove 35s linear infinite;
+}
+
+@keyframes starMove {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-250px);
+    }
+}
+
+/* الخلفيات الفضائية */
+
+.nebula {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.17;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.nebula-one {
+    background: #7134b5;
+    top: -200px;
+    right: -150px;
+}
+
+.nebula-two {
+    background: #3f237e;
+    bottom: -250px;
+    left: -150px;
+}
+
+/* الشريط العلوي */
+
+.topbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 85px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 5;
+
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.logo {
+    font-family: 'Amiri', serif;
+    font-size: 32px;
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+.top-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--muted);
+}
+
+/* الصفحة الرئيسية */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    padding: 110px 20px 60px;
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+
+    animation: appear 1.5s ease both;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eyebrow {
+    color: var(--purple);
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-family: 'Amiri', serif;
+    font-size: clamp(100px, 15vw, 175px);
+    font-weight: 400;
+    line-height: 1.3;
+
+    color: var(--light-purple);
+
+    text-shadow:
+        0 0 25px rgba(168,121,233,0.4),
+        0 0 70px rgba(168,121,233,0.2);
+}
+
+.subtitle {
+    color: #c0b3d0;
+    font-size: 14px;
+    line-height: 2.5;
+    margin-top: 12px;
+}
+
+.enter-button {
+    margin-top: 42px;
+
+    background: transparent;
+
+    border: 1px solid rgba(200,170,255,0.55);
+
+    color: white;
+
+    padding: 16px 30px;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+.enter-button:hover {
+    background: rgba(168,121,233,0.16);
+
+    box-shadow: 0 0 35px rgba(168,121,233,0.3);
+
+    transform: translateY(-4px);
+}
+
+.arrow {
+    margin-right: 12px;
+    font-size: 17px;
+}
+
+.bottom-note {
+    margin-top: 65px;
+    color: #8e7d9f;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.side-note {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+
+    writing-mode: vertical-rl;
+
+    font-size: 10px;
+    color: #81728e;
+}
+
+/* الكوكب */
+
+.planet {
+    position: absolute;
+
+    top: 14%;
+    left: 50%;
+
+    width: 300px;
+    height: 300px;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+    opacity: 0.45;
+
+    animation: planetFloat 7s ease-in-out infinite;
+}
+
+@keyframes planetFloat {
+    0%, 100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: 20px;
+    }
+}
+
+.planet-glow {
+    position: absolute;
+    inset: -40px;
+
+    border-radius: 50%;
+
+    background: #8c51d3;
+
+    filter: blur(75px);
+
+    opacity: 0.2;
+}
+
+.planet-core {
+    position: absolute;
+    inset: 35px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #9872c7,
+            #372052 55%,
+            #100a1c 85%
+        );
+
+    box-shadow: 0 0 70px rgba(151,100,220,0.25);
+}
+
+.planet-ring {
+    position: absolute;
+
+    width: 390px;
+    height: 110px;
+
+    border: 1px solid rgba(213,185,255,0.45);
+
+    border-radius: 50%;
+
+    top: 100px;
+    left: -45px;
+
+    transform: rotate(-20deg);
+}
+
+/* العالم الداخلي */
+
+.universe {
+    min-height: 100vh;
+
+    position: relative;
+    z-index: 2;
+
+    padding: 130px 8%;
+
+    text-align: center;
+
+    animation: appear 1s ease both;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.section-heading h2 {
+    font-family: 'Amiri', serif;
+    font-size: clamp(38px, 7vw, 70px);
+    font-weight: 400;
+}
+
+.section-heading h2 span {
+    color: var(--light-purple);
+}
+
+.section-description {
+    color: var(--muted);
+    margin-top: 15px;
+    font-size: 13px;
+    line-height: 2;
+}
+
+/* البطاقات */
+
+.memory-grid {
+    max-width: 1050px;
+
+    margin: 65px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.memory-card {
+    min-height: 290px;
+
+    padding: 35px 20px;
+
+    background: rgba(255,255,255,0.025);
+
+    border: 1px solid rgba(205,174,255,0.15);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.4s;
+}
+
+.memory-card:hover {
+    transform: translateY(-9px);
+
+    border-color: rgba(205,174,255,0.55);
+
+    background: rgba(145,100,200,0.08);
+}
+
+.card-icon {
+    font-family: 'Amiri', serif;
+    font-size: 30px;
+    color: var(--light-purple);
+    margin-bottom: 15px;
+}
+
+.memory-card p {
+    font-size: 11px;
+    color: var(--purple);
+    margin-bottom: 8px;
+}
+
+.memory-card h3 {
+    font-family: 'Amiri', serif;
+    font-size: 29px;
+    margin: 12px 0;
+    font-weight: 400;
+}
+
+.memory-card > span:last-of-type {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.memory-btn {
+    margin-top: 25px;
+
+    border: none;
+    background: none;
+
+    color: var(--light-purple);
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 12px;
+
+    transition: 0.3s;
+}
+
+.memory-btn:hover {
+    color: white;
+    transform: translateX(-4px);
+}
+
+/* النهاية */
+
+.closing {
+    margin: 85px auto 0;
+
+    max-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 25px;
+}
+
+.closing p {
+    color: #c0b3d0;
+    font-size: 13px;
+    line-height: 2.5;
+}
+
+.closing-line {
+    width: 70px;
+    height: 1px;
+    background: rgba(200,170,255,0.35);
+}
+
+/* نافذة الرسائل */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 10;
+
+    display: grid;
+    place-items: center;
+
+    padding: 20px;
+
+    background: rgba(3,1,8,0.85);
+
+    backdrop-filter: blur(12px);
+}
+
+.modal-content {
+    width: min(450px, 100%);
+
+    min-height: 250px;
+
+    padding: 55px 30px;
+
+    background: #130d20;
+
+    border: 1px solid rgba(205,174,255,0.3);
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.modal-star {
+    color: var(--light-purple);
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.modal-content h3 {
+    font-family: 'Amiri', serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: #e8dcf7;
+    line-height: 2.2;
+    font-size: 14px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    left: 18px;
+
+    background: none;
+    color: white;
+
+    border: none;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+/* الشاشات الصغيرة */
+
+@media (max-width: 700px) {
+
+    .topbar {
+        padding: 0 20px;
+    }
+
+    .top-label {
+        font-size: 9px;
+    }
+
+    .side-note {
+        display: none;
+    }
+
+    .planet {
+        transform: translateX(-50%) scale(0.8);
+    }
+
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .universe {
+        padding: 100px 20px;
+    }
+
+}
+
+/* وهج المجرة المتحرك */
+
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -30%;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 20% 30%,
+      rgba(135, 70, 210, 0.22),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 80% 65%,
+      rgba(110, 130, 210, 0.16),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 50% 90%,
+      rgba(190, 150, 230, 0.12),
+      transparent 40%
+    );
+
+  filter: blur(35px);
+  animation: galaxyGlow 18s ease-in-out infinite alternate;
+}
+
+@keyframes galaxyGlow {
+  0% {
+    transform: translate(-3%, -2%) scale(1);
+  }
+
+  50% {
+    transform: translate(3%, 2%) scale(1.08);
+  }
+
+  100% {
+    transform: translate(-1%, 4%) scale(1.03);
+  }
+}
+
+/* حركة ناعمة عند مرور المؤشر على الأزرار والكروت */
+
+button,
+[class*="card"] {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+button:hover,
+[class*="card"]:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 24px rgba(175, 125, 255, 0.22);
+}
+
+/* احترام إعداد تقليل الحركة في الجهاز */
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+
+  button,
+  [class*="card"] {
+    transition: none;
+  }
+}
+
+/* طبقة النجوم البعيدة */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(2px 2px at 8% 18%, rgba(255,255,255,0.9) 50%, transparent 100%),
+    radial-gradient(1px 1px at 18% 72%, rgba(220,195,255,0.9) 50%, transparent 100%),
+    radial-gradient(2px 2px at 31% 42%, rgba(255,255,255,0.8) 50%, transparent 100%),
+    radial-gradient(1px 1px at 44% 12%, rgba(220,195,255,0.8) 50%, transparent 100%),
+    radial-gradient(2px 2px at 57% 83%, rgba(255,255,255,0.9) 50%, transparent 100%),
+    radial-gradient(1px 1px at 69% 27%, rgba(220,195,255,0.9) 50%, transparent 100%),
+    radial-gradient(2px 2px at 82% 61%, rgba(255,255,255,0.8) 50%, transparent 100%),
+    radial-gradient(1px 1px at 93% 39%, rgba(220,195,255,0.9) 50%, transparent 100%);
+
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 0.65;
+  animation: starsShine 5s ease-in-out infinite alternate;
+}
+
+@keyframes starsShine {
+  from {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0.85;
+    transform: scale(1.015);
+  }
+}
+
+/* تقليل الحركة حسب إعدادات الجهاز */
+
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    animation: none;
+  }
+}
+
+/* الشهاب البنفسجي */
+
+.shooting-star {
+  position: fixed;
+  top: 12%;
+  left: -180px;
+  width: 150px;
+  height: 2px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(190, 150, 255, 0.35),
+    rgba(255, 255, 255, 0.95)
+  );
+
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(190, 150, 255, 0.8);
+
+  transform: rotate(-25deg);
+  animation: shootingStar 1.5s ease-out forwards;
+}
+
+@keyframes shootingStar {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-25deg);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(110vw, 55vh) rotate(-25deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shooting-star {
+    animation: none;
+    display: none;
+  }
+}
+
+/* دخول الكروت بهدوء */
+
+[class*="card"] {
+  animation: cardAppear 0.9s ease both;
+  border-color: rgba(190, 150, 255, 0.2);
+  box-shadow: 0 0 12px rgba(145, 90, 220, 0.08);
+}
+
+/* تأخير بسيط بين ظهور الكروت */
+
+[class*="card"]:nth-of-type(2) {
+  animation-delay: 0.15s;
+}
+
+[class*="card"]:nth-of-type(3) {
+  animation-delay: 0.3s;
+}
+
+[class*="card"]:nth-of-type(4) {
+  animation-delay: 0.45s;
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* وهج الكارت عند المرور عليه */
+
+[class*="card"]:hover {
+  transform: translateY(-7px) scale(1.015);
+  border-color: rgba(205, 170, 255, 0.7);
+  box-shadow:
+    0 0 14px rgba(175, 125, 255, 0.25),
+    0 0 32px rgba(135, 85, 210, 0.16);
+}
+
+/* وضوح التحديد عند استخدام لوحة المفاتيح */
+
+[class*="card"]:focus-visible {
+  outline: 2px solid rgba(205, 170, 255, 0.9);
+  outline-offset: 4px;
+}
+
+/* إيقاف الحركة لمن يفضّل تقليلها */
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="card"] {
+    animation: none;
+  }
+
+  [class*="card"]:hover {
+    transform: none;
+  }
+}
+
+/* الظهور السينمائي لعالم تروي */
+
+body {
+  animation: troyPageEntrance 1.8s ease-out both;
+}
+
+@keyframes troyPageEntrance {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ظهور العناوين بالتدريج */
+
+h1 {
+  animation: troyTitleEntrance 1.3s ease-out 0.35s both;
+}
+
+@keyframes troyTitleEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* إيقاف الحركة حسب إعدادات الجهاز */
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  h1 {
+    animation: none;
+  }
+}
+
+/* بوابة الدخول إلى عالم تروي */
+
+button:not(:disabled) {
+  position: relative;
+  animation: troyButtonGlow 3.5s ease-in-out infinite;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+@keyframes troyButtonGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(160, 100, 230, 0.18),
+      0 0 18px rgba(130, 80, 210, 0.08);
+  }
+
+  50% {
+    box-shadow:
+      0 0 16px rgba(190, 145, 255, 0.4),
+      0 0 32px rgba(130, 80, 210, 0.2);
+  }
+}
+
+/* لما تقربي من الزر */
+
+button:not(:disabled):hover {
+  transform: translateY(-3px) scale(1.035);
+  filter: brightness(1.15);
+  animation-play-state: paused;
+
+  box-shadow:
+    0 0 18px rgba(195, 155, 255, 0.65),
+    0 0 38px rgba(145, 90, 220, 0.35);
+}
+
+/* وقت الضغط على الزر */
+
+button:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+/* إيقاف الحركة لمن يفضّل تقليلها */
+
+@media (prefers-reduced-motion: reduce) {
+  button:not(:disabled) {
+    animation: none;
+  }
+}
+.troy-music-player {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 9999;
+  width: 270px;
+  padding: 18px;
+  border: 1px solid rgba(210, 170, 255, .45);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(38, 15, 67, .96), rgba(13, 8, 35, .97));
+  color: #fff;
+  box-shadow: 0 0 25px rgba(174, 100, 255, .3);
+  backdrop-filter: blur(14px);
+  font-family: inherit;
+}
+
+.music-orbit {
+  float: right;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #d7a4ff, #8750d5);
+  color: white;
+  font-size: 22px;
+  box-shadow: 0 0 16px #a65cff;
+}
+
+.music-small {
+  color: #d7adff;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.music-info h3 {
+  margin: 8px 0 3px;
+  font-size: 19px;
+}
+
+.music-info p {
+  margin: 0 0 14px;
+  color: #d9c4f3;
+  font-size: 12px;
+}
+
+.music-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#music-play {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: #c58aff;
+  color: #25103d;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.music-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.music-list button {
+  border: 1px solid rgba(220, 185, 255, .2);
+  border-radius: 9px;
+  padding: 7px;
+  background: rgba(255,255,255,.06);
+  color: white;
+  text-align: left;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.music-list button:hover,
+.music-list button.active {
+  background: rgba(190, 130, 255, .3);
+  border-color: #c58aff;
+}
+
+.music-note {
+  margin-top: 13px;
+  text-align: center;
+  color: #c7a4e8;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+  .troy-music-player {
+    right: 10px;
+    bottom: 10px;
+    width: min(270px, calc(100vw - 20px));
+  }
+}

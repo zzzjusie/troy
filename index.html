@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080511">
+
+    <title>تروي | عالم معمول عشانك</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="stars" id="stars"></div>
+
+    <div class="nebula nebula-one"></div>
+    <div class="nebula nebula-two"></div>
+
+    <!-- الصفحة الافتتاحية -->
+
+    <header class="topbar">
+
+        <div class="logo">تروي<span>.</span></div>
+
+        <div class="top-label">حاجة صغيرة معمولالك</div>
+
+        <div class="top-label">عالم رقم ٠٠١</div>
+
+    </header>
+
+    <main id="home" class="hero">
+
+        <div class="planet">
+
+            <div class="planet-glow"></div>
+
+            <div class="planet-core"></div>
+
+            <div class="planet-ring"></div>
+
+        </div>
+
+        <div class="hero-content">
+
+            <p class="eyebrow">كان نفسي أعملك حاجة مختلفة</p>
+
+            <h1>تروي</h1>
+
+            <p class="subtitle">
+                مش عارفة أوصفلك كل اللي جوايا إزاي،
+                <br>
+                فقولت أعملك مكان صغير يشبه اللي حاساه.
+            </p>
+
+            <button id="enterBtn" class="enter-button">
+                <span>ادخل وشوف عملتلك إيه</span>
+                <span class="arrow">←</span>
+            </button>
+
+            <p class="bottom-note">
+                كل تفصيلة هنا ليها حكاية
+            </p>
+
+        </div>
+
+        <div class="side-note">
+            حاجة من قلبي ليك
+        </div>
+
+    </main>
+
+
+    <!-- العالم الداخلي -->
+
+    <section id="universe" class="universe hidden">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">أهلاً بيك في مكانك</p>
+
+            <h2>
+                عملتلك العالم ده <span>عشانك.</span>
+            </h2>
+
+            <p class="section-description">
+                مش كل الحاجات الحلوة بتتحكي،
+                في حاجات بتتحس وبس.
+            </p>
+
+        </div>
+
+
+        <div class="memory-grid">
+
+            <article class="memory-card">
+
+                <span class="card-icon">01</span>
+
+                <p>أول حكاية</p>
+
+                <h3>حاجات فاكرها</h3>
+
+                <span>تفاصيل ومواقف مش بتغيب عن بالي.</span>
+
+                <button class="memory-btn"
+                    data-title="حاجات فاكرها"
+                    data-message="أكتر ذكرى مش بتروح من بالي هي فاول مره اتكلمنا فيها عشان احنا اتعرفنا ف جروب شات عشوائي بجد وانا عمري ف يوم ما كنت اتوقع انك تبقى حبيبي اصلا بس انا مبسوطة بيك بجد.">
+                    افتح الحكاية ←
+                </button>
+
+            </article>
+
+
+            <article class="memory-card">
+
+                <span class="card-icon">02</span>
+
+                <p>تاني حكاية</p>
+
+                <h3>حاجات بحبها فيك</h3>
+
+                <span>تفاصيل يمكن متعرفش إني واخدة بالي منها.</span>
+
+                <button class="memory-btn"
+                    data-title="حاجات بحبها فيك"
+                    data-message="بحب حنيتك عليا وحبك الحقيقي ليا وكلامك وتعبيرك ليا و فكرة انك متفهم فشخ وبحب انك هادي وبحب انك مش عصبي معايا ومش بتنتقدني ودايما بتتكلم معايا بهدوء حتى لو غلطت، يمكن الفترة دي بدأت بيننا مشاكل بس انا حقيقي متيقنة اننا هنعدي ده كله مع بعض لاني مش مستعدة اخسرك بجد.">
+                    افتح الحكاية ←
+                </button>
+
+            </article>
+
+
+            <article class="memory-card">
+
+                <span class="card-icon">03</span>
+
+                <p>آخر حكاية</p>
+
+                <h3>كلام نفسي أقولهولك</h3>
+
+                <span>كلام مش عارفة أبدأ أقوله منين.</span>
+
+                <button class="memory-btn"
+                    data-title="كلام نفسي أقولهولك"
+                    data-message="انا بجد نفسي اشوفنا مع بعض علطول وانت بجد مش متخيل انا مستنية قد ايه اليوم اللي هنتقابل فيه ده بجد مستنية بفارغ الصبر بجد هبقى مبسوطة اوي ياتروي وربنا يجعلك نصيبي بجد.">
+                    افتح الحكاية ←
+                </button>
+
+            </article>
+
+        </div>
+
+
+        <div class="closing">
+
+            <div class="closing-line"></div>
+
+            <p>
+                وفي الآخر، حبيت بس يكون ليك مكان
+                <br>
+                معمول بحب ومن غير سبب غير إنك إنت.
+            </p>
+
+            <div class="closing-line"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- نافذة الرسائل -->
+
+    <div id="messageModal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <button id="closeModal" class="close-modal"
+                aria-label="إغلاق">×</button>
+
+            <span class="modal-star">✧</span>
+
+            <h3 id="modalTitle"></h3>
+
+            <p id="modalMessage"></p>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+<div class="troy-music-player">
+  <div class="music-orbit">♫</div>
+  <div class="music-info">
+    <span class="music-small">A LITTLE PIECE OF US ✦</span>
+    <h3 id="music-title">Headlock</h3>
+    <p id="music-subtitle">أغنيتك المفضلة 💜</p>
+  </div>
+
+  <audio id="troy-audio" preload="metadata">
+    <source src="headlock.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="music-controls">
+    <button id="music-play" aria-label="تشغيل أو إيقاف">▶</button>
+    <div class="music-list">
+      <button data-song="headlock.mp3"
+        data-title="Headlock"
+        data-subtitle="أغنيتك المفضلة 💜">01 · Headlock</button>
+
+      <button data-song="no-other-heart.mp3"
+        data-title="No Other Heart"
+        data-subtitle="الأغنية دي بتفكرني بيك 💗">02 · No Other Heart</button>
+
+      <button data-song="puppy-princess.mp3"
+        data-title="Puppy Princess"
+        data-subtitle="الأغنية دي بتفكرني بينا 🌙">03 · Puppy Princess</button>
+    </div>
+  </div>
+  <div class="music-note">made with love, for you ♡</div>
+</div>
+
+</body>
+
+</html>
